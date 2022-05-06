@@ -1,0 +1,8 @@
+#!/bin/sh
+
+touch $HOME/.config/bspwm/dbus
+chmod 600 $HOME/.config/bspwm/dbus
+env | grep DBUS_SESSION_BUS_ADDRESS > $HOME/.config/bspwm/dbus
+echo 'export DBUS_SESSION_BUS_ADDRESS' >> $HOME/.config/bspwm/dbus
+
+exit 0
