@@ -12,6 +12,10 @@ cp -r ./configs/newsboat ~/.config/
 cp -r ./configs/ranger ~/.config/
 cp -r ./configs/networkmanager-dmenu ~/.config/
 
+while read service; do
+  sudo systemctl enable $service;
+done < "enabled-services.txt"
+ 
 mkdir -p ~/.install
 
 echo "Installing nvchad"
@@ -73,5 +77,15 @@ echo "Installing muttwizard"
 git clone https://github.com/LukeSmithxyz/mutt-wizard ~/.install/mutt-wizard
 cd ~/.install/mutt-wizard/
 sudo make install
+
+echo "Install yay"
+git clone https://aur.archlinux.org/yay.git ~/.install/yay
+cd ~/.install/yay
+makepkg -si
+
+echo "Install AUR packages"
+while read aur_package; do
+  yay -S $aur_package;
+done < "aur-package.txt"
 
 echo "All packages installed, all configs are in place!"
