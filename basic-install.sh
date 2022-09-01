@@ -124,6 +124,8 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 cp setup-system.sh /mnt/
 cp install-rice.sh /mnt/
+cp enabled-services.txt /mnt/
+cp installed_packages_database.txt /mnt/
 
 echo -e "${Blue}Chrooting into new system, execute setup-system.sh to install all needed packages and setup services${Color_Off}"
 arch-chroot /mnt

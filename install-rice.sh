@@ -83,6 +83,7 @@ git clone https://aur.archlinux.org/yay.git ~/.install/yay
 cd ~/.install/yay
 makepkg -si
 
+cd ~/arch-rice/
 echo "Install AUR packages"
 while read aur_package; do
   yay -S $aur_package;
