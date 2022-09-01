@@ -89,13 +89,13 @@ echo -e "Hostname generation"
 read -p "$(echo -e "${BIGreen}Device type[T420/HUAWEI/PC (def: archbox)]: ${Color_Off}")" device_selection
 hostname_name="archbox"
 if [[ $device_selection = "PC" ]]; then
-  $hostname_name="metatron"
+  hostname_name="metatron"
   echo $hostname_name
 elif [[ $device_selection = "HUAWEI" ]]; then
-  $hostname_name="gabriel"
+  hostname_name="gabriel"
   echo $hostname_name
 elif [[ $device_selection = "T420" ]]; then
-  $hostname_name="ramiel"
+  hostname_name="ramiel"
   echo $hostname_name
 else
   echo $hostname_name
