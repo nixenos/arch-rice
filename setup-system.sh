@@ -94,7 +94,7 @@ if [[ $device_selection = "PC" ]]; then
 elif [[ $device_selection = "HUAWEI" ]]; then
   $hostname_name="gabriel"
   echo $hostname_name
-elif [[ $device_selection = "T420" ]]
+elif [[ $device_selection = "T420" ]]; then
   $hostname_name="ramiel"
   echo $hostname_name
 else
