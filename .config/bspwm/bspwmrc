@@ -1,0 +1,38 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+/home/nixen/.local/bin/screen-config &
+# bspc monitor -d 1 2 3 4 5 6 7 8 9
+
+bspc query -M | xargs -i bspc monitor {} -d 1 2 3 4 5 6 7 8 9
+
+bspc config border_width         2
+bspc config window_gap          4
+
+bspc config split_ratio           0.5
+bspc config single_monocle 	  true
+bspc config borderless_monocle    true
+bspc config gapless_monocle       true
+bspc config focus_follows_pointer true
+bspc config top_padding 20
+
+bspc config active_border_color \#d79921
+bspc config normal_border_color \#211c1a
+bspc config focused_border_color \#d79921
+
+# bspc rule -a Gimp state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
+# bspc rule -a mplayer2 state=floating
+# bspc rule -a Kupfer.py focus=on
+# bspc rule -a Screenkey manage=off
+
+/home/nixen/.config/polybar/launch.sh &
+nitrogen --restore &
+picom &
+setxkbmap pl &
+pgrep bspswallow || bspswallow &
+dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus &
+
+#xrandr --output HDMI-0 --set TearFree on &
+#xrandr --output DisplayPort-0 --set TearFree on &
