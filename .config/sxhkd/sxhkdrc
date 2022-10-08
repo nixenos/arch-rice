@@ -36,6 +36,9 @@ super + m
 super + n
         alacritty -e "nmtui"
 
+super + l
+        betterlockscreen -l
+
 super + space
         if [ -z "$(bspc query -N -n focused.floating)" ]; then \
             bspc node focused -t floating; \
